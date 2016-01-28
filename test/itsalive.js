@@ -24,18 +24,24 @@ describe('Asynchronous test', function(){
 })
 describe('spy test', function(){
 
+
 	it('spy on function called once', function(){
 		var obj = {
     	foobar: function () {
         	console.log('foo');
         	return 'bar';
-    	}
-	}
+    		}
+		}
 
-	var spyableReturn = chai.spy(obj.foobar);
-	spyableReturn();
+		// method # 1
+		// var spyableReturn = chai.spy(obj.foobar);
+		// spyableReturn();
+		// expect(spyableReturn).to.have.been.called();
+		// expect(spyableReturn).to.have.been.called.exactly(1);
 
-	expect(spyableReturn).to.have.been.called();
-	expect(spyableReturn).to.have.been.called.exactly(1);
+		// method #2
+		chai.spy.on(obj, 'foobar')
+		obj.foobar();
+		expect(obj.foobar).to.have.been.called();
 	})
 })

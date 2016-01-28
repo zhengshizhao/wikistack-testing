@@ -1,6 +1,12 @@
 var mongoose = require('mongoose');
 var marked = require('marked');
+
+// if we're testing
+// mongoose.connect('mongodb://localhost/wikistacktesting');
+// if we're not testing
 mongoose.connect('mongodb://localhost/wikistack');
+
+
 
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'mongodb connection error: '));

@@ -1,10 +1,11 @@
 var mongoose = require('mongoose');
 var marked = require('marked');
-
-// if we're testing
-// mongoose.connect('mongodb://localhost/wikistacktesting');
-// if we're not testing
-mongoose.connect('mongodb://localhost/wikistack');
+// if we're testing// if we're not testing
+if(process.env.NODE_ENV == 'test'){ 
+    mongoose.connect('mongodb://localhost/wikistacktesting');
+} else {
+    mongoose.connect('mongodb://localhost/wikistack');
+}
 
 
 

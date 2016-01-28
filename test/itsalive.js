@@ -17,7 +17,7 @@ describe('Asynchronous test', function(){
 			var timestop = new Date();
 			//console.log(timestop - timestart);
 			// expect(duration).to.be.closeTo(1000, 50);
-			expect(timestop - timestart).to.be.above(1000);
+			expect(timestop - timestart).to.be.closeTo(1000,50);
 			done();
 		}, 1000);
 	})
